@@ -12,7 +12,7 @@ module Middleman::Renderers
                 @fig_path = "figure"
                 # Set figure path relative to file if using Middleman, which tells us the filepath
                 if (!scope.nil? && scope.is_a?(Middleman::Application))
-                    @fig_path = Pathname.new("#{scope.source_dir}/#{scope.current_page.url}/figure").relative_path_from(Pathname.new(scope.root)).to_s
+                    @fig_path = Pathname.new(File.join("#{scope.source_dir}","#{scope.current_page.url}","figure")).relative_path_from(Pathname.new(scope.root)).to_s
                 end
                 super
         end
